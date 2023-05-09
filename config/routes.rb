@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :admins
+  devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: "user/homes#top"
   get '/home/about' => 'public/homes#about', as: 'about'
@@ -6,14 +8,14 @@ Rails.application.routes.draw do
     resources :post_items, only: [:index,:destroy,:show]
     resources :customers, only:[:index,:show,:edit,:update]
   end
-  
+
   namespace :user do
-    resources :post_items, only[:index,:new,:create,:show]
-    resources :customrers, only[:show,:edit,:update]
+    resources :post_items, only:[:index,:new,:create,:show]
+    resources :customrers, only:[:show,:edit,:update]
     get '/users/unsubscribe' => 'users#unsubscribe'
     patch '/users/withdraw' => 'users#withdraw'
     get '/rankings' => 'rankings#index'
-    resources :bookmarks, only[:index,:create,:destroy]
-    resources :follows, only[:index,:create,:destroy]
+    resources :bookmarks, only:[:index,:create,:destroy]
+    resources :follows, only:[:index,:create,:destroy]
   end
 end
