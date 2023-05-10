@@ -1,2 +1,15 @@
-<h1>User::Customers#show</h1>
-<p>Find me in app/views/user/customers/show.html.erb</p>
+<h1>マイページ</h1>
+<%= link_to '編集する', user_customers_information_edit_path, class: 'btn btn-success' %>
+<p>ユーザーネーム<%= @user.name %></p>
+<p>メールアドレス<%= @user.email %></p>
+<p>パスワード<%= @user.password %></p>
+<p>ステータス
+<% if user.is_deleted == false %>
+有効
+<% else %>
+退会
+<% end %>
+</p>
+<%= link_to '新規投稿', new_user_post_item_path, class: 'btn btn-primary' %>
+<%= link_to '投稿一覧へ', user_post_item_path, class: 'btn btn-primary' %>
+<%= link_to '退会へ',user_unsubscribe_path, class: 'btn btn-denger' %>

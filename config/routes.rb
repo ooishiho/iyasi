@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  
+
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
@@ -20,9 +20,10 @@ Rails.application.routes.draw do
 
   namespace :user do
     resources :post_items, only:[:index,:new,:create,:show]
-    resources :customrers, only:[:show,:edit,:update]
-    get '/users/unsubscribe' => 'users#unsubscribe'
-    patch '/users/withdraw' => 'users#withdraw'
+    resources :customrers, only:[:edit,:update]
+    get '/my_page' => 'customers#show'
+    get '/unsubscribe' => 'customers#unsubscribe'
+    patch '/withdraw' => 'customers#withdraw'
     get '/rankings' => 'rankings#index'
     resources :bookmarks, only:[:index,:create,:destroy]
     resources :follows, only:[:index,:create,:destroy]
