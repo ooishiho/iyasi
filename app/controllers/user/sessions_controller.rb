@@ -2,7 +2,8 @@
 
 class User::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
-
+  before_action :authenticate_user!, except: [:top, :about,:public_items]
+  #before_action :customer_state, only: [:create]
   # GET /resource/sign_in
   # def new
   #   super
@@ -17,7 +18,13 @@ class User::SessionsController < Devise::SessionsController
   # def destroy
   #   super
   # end
+  def after_sign_in_path_for(resource)
+      user_post_items_path
+  end
 
+  def after_sign_out_path_for(resource)
+      root_path
+  end
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
