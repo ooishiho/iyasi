@@ -1,2 +1,4 @@
 <h1>投稿詳細</h1>
-<p>Find me in app/views/user/post_items/show.html.erb</p>
+<%= link_to @user.name,user_my_page_path(@user.id) %>
+<%= image_tag @post_item.get_item_image(100,100) %>
+<p>投稿文<%= @post_item.introduction %></p>
