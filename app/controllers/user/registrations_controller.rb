@@ -8,7 +8,9 @@ class User::RegistrationsController < Devise::RegistrationsController
   # def new
   #   super
   # end
-
+  def after_sign_up_path_for(resource)
+    user_post_items_path
+  end
   # POST /resource
   # def create
   #   super
@@ -59,4 +61,10 @@ class User::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name,:email])
+  end
+
 end

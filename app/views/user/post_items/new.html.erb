@@ -1,5 +1,5 @@
 <h1>新規投稿</h1>
-<%= form_with model: PostItem.new, url: user_post_item_path, method: :post do |f| %>
+<%= form_with model: PostItem.new, url: user_post_items_path, method: :post do |f| %>
 <div>
   <%= f.label :post_item, '投稿画像' %>
   <%= f.file_field :image, accept: "image/*", class: 'form-control-file' %>
