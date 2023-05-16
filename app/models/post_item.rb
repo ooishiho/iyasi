@@ -1,10 +1,10 @@
 class PostItem < ApplicationRecord
   belongs_to :user
-  has_many :bookmarks
+  has_many :bookmarks,dependent: :destroy
   has_many :evaluations
 
   has_one_attached :image
-  
+
   def get_item_image(width,height)
     unless image.attached?
       file_path = Rails.root.join('app/assets/images/no_image_square.jpg')
@@ -12,4 +12,9 @@ class PostItem < ApplicationRecord
     end
     image.variant(resize_to_limit: [width,height]).processed
   end
+
+  def favorited_by?(user)
+    favorites.exists?(user_id: user.id)
+  end
+
 end

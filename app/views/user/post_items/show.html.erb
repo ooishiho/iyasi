@@ -2,3 +2,16 @@
 <%= link_to @user.name,user_my_page_path(@user.id) %>
 <%= image_tag @post_item.get_item_image(100,100) %>
 <p>投稿文<%= @post_item.introduction %></p>
+<% if @post_image.favorited_by?(current_user) %>
+    <p>
+      <%= link_to post_item_favorites_path(@post_item), method: :delete do %>
+        <i class="fa-solid fa-bookmark"></i><%= @post_item.favorites.count %> ブックマーク
+      <% end %>
+    </p>
+    <% else %>
+    <p>
+      <%= link_to post_item_favorites_path(@post_item), method: :post do %>
+        <i class="fa-regular fa-bookmark"></i><%= @post_item.favorites.count %> ブックマーク
+      <% end %>
+    </p>
+  <% end %>

@@ -1,5 +1,5 @@
 <h1>マイページ</h1>
-<%= link_to '編集する', user_customers_information_edit_path, class: 'btn btn-success' %>
+<%= link_to '編集する', edit_user_customrer_path(current_user), class: 'btn btn-success' %>
 <p>ユーザーネーム<%= @user.name %></p>
 <p>メールアドレス<%= @user.email %></p>
 <p>パスワード<%= @user.password %></p>
