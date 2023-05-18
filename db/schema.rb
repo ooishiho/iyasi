@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2023_05_09_115211) do
 
   create_table "bookmarks", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "post_image_id"
+    t.integer "post_item_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 2023_05_09_115211) do
   end
 
   create_table "post_items", force: :cascade do |t|
+    t.integer "user_id"
     t.string "introduction"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
