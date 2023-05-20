@@ -1,9 +1,11 @@
 class User::CustomersController < ApplicationController
   def show
-    @usre = current_user
+    @user = current_user
+    @post_items = PostItem.all
   end
 
   def edit
+    @post_items = PostItem.all
     @user = current_user
   end
 
@@ -26,6 +28,6 @@ class User::CustomersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name,:email)
+    params.require(:user).permit(:name,:email,:password)
   end
 end

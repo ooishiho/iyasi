@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   namespace :user do
     resources :post_items, only:[:index,:new,:create,:show]
-    resources :customrers, only:[:edit,:update]
+    resources :customers, only:[:edit,:update]
 
     get '/my_page' => 'customers#show'
     get '/unsubscribe' => 'customers#unsubscribe'

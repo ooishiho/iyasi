@@ -1,5 +1,5 @@
 <h1>投稿一覧</h1>
-<h3>全<% @post_item_all.count %>　件</h3>
+<h3>全<%= @post_items.count %>件</h3>
 <% @post_items.each do |post_item| %>
    <%= link_to user_post_item_path(post_item.id)  do %>
    <%= image_tag post_item.get_item_image(200,200) %>

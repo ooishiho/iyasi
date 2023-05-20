@@ -5,6 +5,15 @@ class PostItem < ApplicationRecord
 
   has_one_attached :image
 
+  def self.search(search)
+    if search != ""
+      PostItem.where(['introduction LIKE(?)', "%#{search}%"])
+    else
+      PostItem.includes(:user).order('created_at DESC')
+    end
+
+  end
+
   def get_item_image(width,height)
     unless image.attached?
       file_path = Rails.root.join('app/assets/images/no_image_square.jpg')
