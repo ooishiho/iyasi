@@ -19,7 +19,7 @@ before_action :authenticate_admin!, except: [:top, :about]
   # end
 
   def after_sign_in_path_for(resource)
-      admin_path
+      home_top_path
   end
 
   def after_sign_out_path_for(resource)

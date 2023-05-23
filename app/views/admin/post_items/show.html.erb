@@ -1,2 +1,4 @@
-<h1>Admin::PostItems#show</h1>
-<p>Find me in app/views/admin/post_items/show.html.erb</p>
+<% image_tag @post_item.get_item_image(300,600) %>
+<p><%= @post_item.introduction %></p>
+<P>総合評価</P>
+<%= link_to '投稿を削除する',admin_post_item_path, method: :delete, data: {confirm: "本当に削除しますか？"},class: 'btn-btn-denger' %>

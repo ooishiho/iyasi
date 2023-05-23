@@ -1,5 +1,5 @@
 <h1>ユーザー一覧</h1>
-<tablw>
+<table>
   <thead>
    <tr>
      <th>ユーザーID</th>
@@ -12,7 +12,7 @@
 <% @users.each do |user| %>
     <tr>
       <td><%= user.id %></td>
-      <td><%= link_to user.name, admin_customers_path(user.id) %></td>
+      <td><%= link_to user.name, admin_customer_path(user.id) %></td>
       <td><%= user.email %></td>
       <td>
         <% if user.is_deleted == false %>
@@ -22,5 +22,6 @@
         <% end %>
         </td>
     </tr>
+  <% end %>
   </tbody>
-</tablw>
+</table>

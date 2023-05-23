@@ -14,8 +14,8 @@ class User::PostItemsController < ApplicationController
 
   def create
     @post_item = PostItem.new(post_item_params)
-   @post_item.user = current_user
-    @post_item.save!
+    @post_item.user = current_user
+    @post_item.save
     redirect_to user_post_item_path(@post_item.id)
   end
 
