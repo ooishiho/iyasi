@@ -1,7 +1,7 @@
 class PostItem < ApplicationRecord
   belongs_to :user
   has_many :bookmarks,dependent: :destroy
-  has_many :evaluations
+  has_many :evaluations,dependent: :destroy
 
   has_one_attached :image
 
