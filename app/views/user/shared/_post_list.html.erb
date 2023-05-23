@@ -1,8 +1,3 @@
-<h1>投稿一覧</h1>
-<%= render '/public/user/shared/post_list' %>
-
-@post_items = PostItem.all
-
 <h3>全<%= @post_items.count %>件</h3>
 <% @post_items.each do |post_item| %>
    <%= link_to user_post_item_path(post_item.id)  do %>

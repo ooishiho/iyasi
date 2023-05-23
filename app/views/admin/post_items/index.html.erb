@@ -1,5 +1,11 @@
 <h1><%= @user.name %>さんの投稿一覧</h1>
 <div class="row">
+
+@post_items = current_user.post_items
+
+<%= render '/public/user/shared/post_list' %>
+
+
 <% @post_items.each do |post_item| %>
  <div class="col-md-3">
  <%= link_to user_post_item_path(post_item.id) do %>

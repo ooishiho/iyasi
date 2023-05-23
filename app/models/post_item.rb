@@ -7,7 +7,7 @@ class PostItem < ApplicationRecord
 
   def self.search(search)
     if search != ""
-      PostItem.where(['introduction LIKE(?)', "%#{search}%"])
+      PostItem.joins(:user).where(['introduction LIKE(?) OR users.name LIKE (?)', "%#{search}%", "%#{search}%"])
     else
       PostItem.includes(:user).order('created_at DESC')
     end
