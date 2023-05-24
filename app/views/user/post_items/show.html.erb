@@ -15,3 +15,13 @@
       <% end %>
     </p>
   <% end %>
+
+<% if current_user.following?(user) %>
+  <%= link_to user_relationships_path(user.id), method: :delete do %>
+  <i class="fa-regular fa-user"></i>フォロー
+  <% end %>
+<% else %>
+  <%= link_to user_relationships_path(user.id), method: :post do %>
+  <i class="fa-solid fa-user-plus"></i>フォロー
+  <% end %>
+<% end %>

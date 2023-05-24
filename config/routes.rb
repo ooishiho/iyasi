@@ -27,6 +27,8 @@ Rails.application.routes.draw do
     patch '/withdraw' => 'customers#withdraw'
     get '/rankings' => 'rankings#index'
     resources :bookmarks, only:[:index,:create,:destroy]
-    resources :follows, only:[:index,:create,:destroy]
+    resources :follows, only:[:create,:destroy]
+    get 'followings' => 'relationships#followings', as: 'followings'
+    get 'followers' => 'relationships#followers', as: 'followers'
   end
 end
