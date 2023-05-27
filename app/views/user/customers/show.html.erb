@@ -10,5 +10,5 @@
 <% end %>
 </p>
 <%= link_to '新規投稿', new_user_post_item_path, class: 'btn btn-primary' %>
-<%= link_to '投稿一覧へ', user_post_items_path, class: 'btn btn-primary' %>
+<%= link_to 'あなたの投稿', user_post_items_path(all:false), class: 'btn btn-primary' %>
 <%= link_to '退会へ',user_unsubscribe_path, class: 'btn btn-denger' %>

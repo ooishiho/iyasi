@@ -1,9 +1,8 @@
-<h1><%= @user.name %>さんの投稿一覧</h1>
+<h1><%= current_user.name %>さんの投稿一覧</h1>
 <div class="row">
 
-@post_items = current_user.post_items
 
-<%= render '/public/user/shared/post_list' %>
+<%= render 'user/shared/post_list' %>
 
 
 <% @post_items.each do |post_item| %>

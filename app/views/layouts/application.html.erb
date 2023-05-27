@@ -19,7 +19,7 @@
        <li>
       <% if user_signed_in? %>
        <li>
-        <%= link_to user_post_items_path, class:'nav-link' do %>
+        <%= link_to user_post_items_path(all:true), class:'nav-link' do %>
         <i class="fa-regular fa-image"></i>投稿一覧
         <% end %>
        </li>

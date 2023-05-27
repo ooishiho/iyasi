@@ -1,10 +1,15 @@
 class User::PostItemsController < ApplicationController
   def index
-     @post_items = PostItem.all
-     if params["search"].present?
+    if params[:all] == "true"
+       @post_items =  PostItem.all
+    elsif params[:all] == "false"
+       @post_items =  current_user.post_items
+    else
+       @post_items =  PostItem.all
+    end
+    if params["search"].present?
       @post_items = PostItem.search(params["search"])
-     end
-
+    end
      @user = current_user
   end
 
@@ -22,14 +27,14 @@ class User::PostItemsController < ApplicationController
   def show
     @post_items = PostItem.all
     @post_item = PostItem.find(params[:id])
-    @user = current_user
+    @user = @post_item.user
   end
 
   def search
     @post_items = PostItem.search(params[:keyword])
     @user = current_user
 
-    render 'index'
+    #render 'index'
   end
 
   private
