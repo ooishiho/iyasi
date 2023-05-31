@@ -1,7 +1,6 @@
 class Admin::PostItemsController < ApplicationController
   def index
-    @post_items = PostItem.all
-    @user = User.find(params[:id])
+    @post_items = PostItem.page(params[:page]).per(8)
   end
 
   def destroy
@@ -9,6 +8,7 @@ class Admin::PostItemsController < ApplicationController
 
   def show
     @post_item = PostItem.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   private

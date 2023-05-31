@@ -1,16 +1,40 @@
-<h1><%= current_user.name %>さんの投稿一覧</h1>
-<div class="row">
-
-
-<%= render 'user/shared/post_list' %>
-
-
-<% @post_items.each do |post_item| %>
- <div class="col-md-3">
- <%= link_to user_post_item_path(post_item.id) do %>
- <%= image_tag post_item.get_item_image(200,200) %>
- <% end %>
- <p><%= post_item.created_at %></p>
+<div class="container">
+ <div class="row">
+ <h2 class="mt-5 mb-3">投稿一覧(全<%= @post_items.count %>件)</h2>
+ </br class="d-none">
+  <% @post_items.each do |post_item| %>
+  <div class="col-md-3 mt-5">
+   <%= link_to user_post_item_path(post_item.id) do %>
+   <%= image_tag post_item.get_item_image(200,200) %>
+   <% end %>
+   <p><%= post_item.created_at %></p>
+  </div>
+  <% end %>
+ </div>
 </div>
-<% end %>
-</div>
+<footer>
+ <%= paginate @post_items %>
+ <div class="container">
+  <div class="row">
+   <div class="col-md-6 offset-md-5 mt-5 py-2">
+   <nav aria-label="Page navigation">
+   <ul class="pagination">
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Previous">
+        <span aria-hidden="true">«</span>
+      </a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Next">
+        <span aria-hidden="true">»</span>
+      </a>
+    </li>
+   </ul>
+   </nav>
+   </div>
+  </div>
+ </div>
+</footer>

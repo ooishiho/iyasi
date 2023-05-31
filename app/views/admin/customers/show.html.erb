@@ -1,14 +1,21 @@
-<h1><%= @user.name %>さんの詳細</h1>
-<p>ユーザーID<%= @user.id %></p>
-<p>ユーザーネーム<%= @user.name %></p>
-<p>メールアドレス<%= @user.email %></p>
-<p>会員ステータス
-<% if @user.is_deleted == false %>
-有効
-<% else %>
-退会
-<% end %>
-</p>
-
-<%= link_to "編集", edit_admin_customer_path(@user.id), class: "btn btn-sm btn-primary edit_admin_customer_path(user.id)" %>
-<%= link_to "投稿履歴一覧を見る",admin_post_items_path, class: "btn btn-sm btn-success admin_post_items_path" %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+     <h2 class="text-center mt-5 mb-5"><%= @user.name %>さんの詳細</h2>
+      <div class="form-group">ユーザーID<%= @user.id %></div>
+      <div class="form-group">ユーザーネーム<%= @user.name %></div>
+      <div class="form-group">メールアドレス<%= @user.email %></div>
+      <div class="form-group">会員ステータス
+        <% if @user.is_deleted == false %>
+        有効
+        <% else %>
+        退会
+        <% end %>
+      </div>
+      <div class="form-group">
+       <%= link_to "編集", edit_admin_customer_path(@user.id), class: "btn btn-sm btn-primary edit_admin_customer_path(user.id)" %>
+       <%= link_to "投稿履歴一覧を見る",admin_post_items_path, class: "btn btn-sm btn-success admin_post_items_path" %>
+      </div>
+    </div>
+  </div>
+</div>
