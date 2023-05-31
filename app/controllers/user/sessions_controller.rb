@@ -29,9 +29,9 @@ class User::SessionsController < Devise::SessionsController
   protected
 
   def user_state
-    @user = User.find_by(email: params[:customer][:email])
+    @user = User.find_by(email: params[:user][:email])
     return if !@user
-    if @user.valid_password?(params[:customer][:password]) && @user.is_deleted == true
+    if @user.valid_password?(params[:user][:password]) && @user.is_deleted == true
       redirect_to new_user_registration_path
     end
   end

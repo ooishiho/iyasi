@@ -20,22 +20,22 @@
       <ul class="navbar-nav me-auto mb-2 mb-xl-0">
       <% if user_signed_in? %>
        <li class="nav-item">
-        <%= link_to user_post_items_path(all:true), class:'nav-link' do %>
+        <%= link_to user_post_items_path(all:true), class:'nav-link active' do %>
         <i class="fa-regular fa-image"></i>投稿一覧
         <% end %>
        </li>
        <li "nav-item">
-        <%= link_to user_rankings_path, class: 'nav-link' do %>
+        <%= link_to user_rankings_path, class: 'nav-link active' do %>
         <i class="fa-solid fa-crown"></i>ランキング
         <% end %>
        </li>
        <li "nav-item">
-        <%= link_to user_bookmarks_path, class: 'nav-link' do %>
+        <%= link_to user_bookmarks_path, class: 'nav-link active' do %>
         <i class="fa-solid fa-bookmark"></i>ブックマーク
         <% end %>
        </li>
        <li "nav-item">
-        <%= link_to user_my_page_path, class: 'nav-link' do %>
+        <%= link_to user_my_page_path, class: 'nav-link active' do %>
         <i class="fa-regular fa-user"></i>マイページ
         <% end %>
        </li>
@@ -62,22 +62,22 @@
        </li>
       <% else %>
        <li "nav-item">
-        <%= link_to about_path, class: 'nav-link' do %>
+        <%= link_to about_path, class: 'nav-link active' do %>
         About
         <% end %>
        </li>
        <li class="nav-item">
-        <%= link_to user_post_items_path, class: 'nav-link text-light' do %>
+        <%= link_to user_post_items_path, class: 'nav-link active' do %>
         <i class="fa-regular fa-image"></i>投稿一覧
         <% end %>
        </li>
        <li class="nav-item">
-        <%= link_to new_user_registration_path, class: 'nav-link text-light' do %>
+        <%= link_to new_user_registration_path, class: 'nav-link active' do %>
         <i class="fa-solid fa-user-plus"></i>新規登録
         <% end %>
        </li>
        <li class="nav-item">
-        <%= link_to new_user_session_path, class: 'nav-link text-light' do %>
+        <%= link_to new_user_session_path, class: 'nav-link active' do %>
         <i class="fa-solid fa-right-to-bracket"></i>ログイン
         <% end %>
        </li>

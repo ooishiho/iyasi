@@ -1,14 +1,29 @@
-<h1>マイページ</h1>
-<%= link_to '編集する', edit_user_customer_path(current_user), class: 'btn btn-success' %>
-<p>ユーザーネーム<%= @user.name %></p>
-<p>メールアドレス<%= @user.email %></p>
-<p>ステータス
-<% if @user.is_deleted == false %>
-有効
-<% else %>
-退会
-<% end %>
-</p>
-<%= link_to '新規投稿', new_user_post_item_path, class: 'btn btn-primary' %>
-<%= link_to 'あなたの投稿', user_post_items_path(all:false), class: 'btn btn-primary' %>
-<%= link_to '退会へ',user_unsubscribe_path, class: 'btn btn-denger' %>
+<div class="container">
+  <div class="row">
+    <dic class="col-sm-12 col-md-8 col-lg-5 px-5 px-5 px-sm-0 mx-auto">
+      <h1 class="text-center mt-3 mb-3">マイページ</h1>
+      <div class="form-group">
+        <%= link_to '編集する', edit_user_customer_path(current_user), class: 'btn btn-success' %>
+      </div>
+      <div class="form-group">
+        ユーザーネーム<class="mr-5"><%= @user.name %>
+      </div>
+      <div class="form-group">
+        メールアドレス<%= @user.email %>
+      </div>
+      <div class="form-group">
+        ステータス
+        <% if @user.is_deleted == false %>
+        有効
+        <% else %>
+        退会
+        <% end %>
+      </div>
+      <div class="form-group">
+        <%= link_to '新規投稿', new_user_post_item_path, class: 'btn btn-primary' %>
+        <%= link_to 'あなたの投稿', user_post_items_path(all:false), class: 'btn btn-primary' %>
+        <%= link_to '退会へ',user_unsubscribe_path, class: 'btn btn-danger' %>
+      </div>
+    </dic>
+  </div>
+</div>
