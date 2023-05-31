@@ -1,7 +1,12 @@
 <h1>投稿詳細</h1>
 <%= link_to @user.name,user_my_page_path(@user.id) %>
+<img src="assets/images/bs-images/img-2x1.png" class="img-fluid" alt="img-fluid">
 <%= image_tag @post_item.get_item_image(100,100) %>
 <p>投稿文<%= @post_item.introduction %></p>
+<div class="form-floating">
+  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height: 100px"><%= @post_item.introduction %></textarea>
+  <label for="floatingTextarea">投稿文</label>
+</div>
 <% if @post_item.favorited_by?(current_user) %>
     <p>
       <%= link_to user_bookmark_path(id: @post_item, post_item_id: @post_item), method: :delete do %>

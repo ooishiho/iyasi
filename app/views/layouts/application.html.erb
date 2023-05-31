@@ -2,92 +2,92 @@
 <html>
   <head>
    <script src="https://kit.fontawesome.com/2ed1d1607f.js" crossorigin="anonymous"></script>
-    <title>Iyasi</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+   <title>Iyasi</title>
   </head>
 
   <body>
     <header>
-    <a>iyasi</a>
-    <nav>
-      <ul>
-       <li>
+    <nav class="navbar navbar-expand-xl navbar-light bg-light">
+     <div class="container-fluid">
+      <a class="navbar-brand" href="/"><span>iyasi</span></a>
+      <div  class="collapse navbar-collapse show" id="navbarBasic">
+      <ul class="navbar-nav me-auto mb-2 mb-xl-0">
       <% if user_signed_in? %>
-       <li>
+       <li class="nav-item">
         <%= link_to user_post_items_path(all:true), class:'nav-link' do %>
         <i class="fa-regular fa-image"></i>投稿一覧
         <% end %>
        </li>
-       <li>
+       <li "nav-item">
         <%= link_to user_rankings_path, class: 'nav-link' do %>
         <i class="fa-solid fa-crown"></i>ランキング
         <% end %>
        </li>
-       <li>
+       <li "nav-item">
         <%= link_to user_bookmarks_path, class: 'nav-link' do %>
         <i class="fa-solid fa-bookmark"></i>ブックマーク
         <% end %>
        </li>
-       <li>
+       <li "nav-item">
         <%= link_to user_my_page_path, class: 'nav-link' do %>
         <i class="fa-regular fa-user"></i>マイページ
         <% end %>
        </li>
-       <li>
+       <li "nav-item">
         <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link' do %>
         <i class="fa-solid fa-right-from-bracket"></i>ログアウト
         <% end %>
        </li>
       <% elsif admin_signed_in? %>
-       <li>
-        <%= link_to admin_post_items_path, class: 'nav-link' do %>
+       <li "nav-item">
+        <%= link_to admin_post_items_path, class: "nav-link active" do %>
         <i class="fa-regular fa-image"></i>投稿一覧
         <% end %>
        </li>
-       <li>
-        <%= link_to admin_customers_path, class: 'nav-link' do %>
+       <li "nav-item">
+        <%= link_to admin_customers_path, class: "nav-link active"  do %>
         <i class="fa-solid fa-users"></i>ユーザー一覧
         <% end %>
        </li>
-       <li>
-        <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link' do %>
+       <li "nav-item">
+        <%= link_to destroy_admin_session_path, method: :delete, class: "nav-link active" do %>
         <i class="fa-solid fa-right-from-bracket"></i>ログアウト
         <% end %>
        </li>
       <% else %>
-       <li>
+       <li "nav-item">
         <%= link_to about_path, class: 'nav-link' do %>
         About
         <% end %>
        </li>
-       <li>
-        <%= link_to user_post_items_path, class: 'nav-link' do %>
+       <li class="nav-item">
+        <%= link_to user_post_items_path, class: 'nav-link text-light' do %>
         <i class="fa-regular fa-image"></i>投稿一覧
         <% end %>
        </li>
-       <li>
-        <%= link_to new_user_registration_path, class: 'nav-link' do %>
+       <li class="nav-item">
+        <%= link_to new_user_registration_path, class: 'nav-link text-light' do %>
         <i class="fa-solid fa-user-plus"></i>新規登録
         <% end %>
        </li>
-       <li>
-        <%= link_to new_user_session_path, class: 'nav-link' do %>
+       <li class="nav-item">
+        <%= link_to new_user_session_path, class: 'nav-link text-light' do %>
         <i class="fa-solid fa-right-to-bracket"></i>ログイン
         <% end %>
        </li>
        </li>
       </ul>
       <% end %>
-    </nav>
-    <%= form_tag({controller:"post_items",action:"index"}, method: :get) do %>
-    <%= text_field_tag :search, {}, placeholder: "検索したい単語を入力してください" %>
-    <%= submit_tag '検索' %>
-    <% end %>
+       <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="検索したい単語を入力してください" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">検索</button>
+      </form>
        <% if @posts == [] %>
          <h2 class = "seach-result">検索結果はありません</h2>
        <% else %>
@@ -103,9 +103,12 @@
        <% end %>
          </ul>
          </div>
+      </div>
+     </div>
+    </nav>
     </header>
-    <main>
-     <%= yield %>
-    </main>
+     <main>
+      <%= yield %>
+     </main>
   </body>
 </html>

@@ -1,26 +1,35 @@
 <%= form_with model: @user, url: admin_customer_path, method: :patch do |f| %>
-<h1><%= @user.name %>さんの会員情報編集</h1>
-
-<div>
+<h2 class="text-center mt-5 mb-5"><%= @user.name %>さんの会員情報編集</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+  
+<div class="form-group">
   <%= f.label :id, 'ユーザーID' %>
   <%= @user.id %>
 </div>
-<div>
+<div class="form-group">
   <%= f.label :name, 'ユーザー名' %>
   <%= f.text_field :name, class: 'form-control' %>
 </div>
-<div>
+<div class="form-group">
   <%= f.label :email, 'メールアドレス' %>
   <%= f.email_field :email, class: 'for,-control' %>
 </div>
-<div>
+<div class="form-group">
   <%= f.label :is_deleted, '会員ステータス' %>
   <%= f.radio_button :is_deleted, false %>
   <%= f.label :is_deleted, '有効' %>
   <%= f.radio_button :is_deleted, true %>
   <%= f.label :is_deleted, '退会' %>
 </div>
-<div>
+<div class="form-group">
   <%= f.submit '変更を保存', class: 'btn btn-success' %>
+</div>
+<div class="form-group">
+  <%= link_to "戻る",admin_customer_path(@user.id), class: 'btn btn-primary'%>
+</div>
+   </div>
+  </div>
 </div>
 <% end %>

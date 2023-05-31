@@ -1,20 +1,22 @@
-<h1>ユーザー一覧</h1>
-<table>
+<div class="container">
+<h1 class="text-left mt-3 mb-3">ユーザー一覧</h1>
+<div class="c enter-block ">
+<table class="table">
   <thead>
    <tr>
-     <th>ユーザーID</th>
-     <th>ユーザー名</th>
-     <th>メールアドレス</th>
-     <th>ステータス</th>
+     <th scope="col">ユーザーID</th>
+     <th scope="col">ユーザー名</th>
+     <th scope="col">メールアドレス</th>
+     <th scope="col">ステータス</th>
    </tr>
   </thead>
   <tbody>
 <% @users.each do |user| %>
     <tr>
-      <td><%= user.id %></td>
-      <td><%= link_to user.name, admin_customer_path(user.id) %></td>
-      <td><%= user.email %></td>
-      <td>
+      <td scope="row"><%= user.id %></td>
+      <td scope="row"><%= link_to user.name, admin_customer_path(user.id) %></td>
+      <td scope="row"><%= user.email %></td>
+      <td scope="row">
         <% if user.is_deleted == false %>
         有効
         <% else %>
@@ -25,3 +27,5 @@
   <% end %>
   </tbody>
 </table>
+</div>
+</div>
