@@ -5,7 +5,8 @@ class User::PostItemsController < ApplicationController
     elsif params[:all] == "false"
        @post_items =  current_user.post_items
     else
-       @post_items =  PostItem.all
+      #byebug
+       @post_items =  PostItem.page(params[:page]).per(8)
     end
     if params["search"].present?
       @post_items = PostItem.search(params["search"])
@@ -28,6 +29,8 @@ class User::PostItemsController < ApplicationController
     @post_items = PostItem.all
     @post_item = PostItem.find(params[:id])
     @user = @post_item.user
+    @login_user = current_user
+
   end
 
   def search
