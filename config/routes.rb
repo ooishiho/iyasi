@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: "user/homes#top"
   get '/home/top' => 'admin/homes#top'
-  get '/home/about' => 'public/homes#about', as: 'about'
+  get '/home/about' => 'user/homes#about', as: 'about'
   namespace :admin do
     resources :post_items, only: [:index,:destroy,:show]
     resources :customers, only:[:index,:show,:edit,:update]
@@ -27,7 +27,7 @@ Rails.application.routes.draw do
     patch '/withdraw' => 'customers#withdraw'
     get '/rankings' => 'rankings#index'
     resources :bookmarks, only:[:index,:create,:destroy]
-    resources :follows, only:[:create,:destroy]
+    resources :follows, only:[:create,:destroy,:index]
     get 'followings' => 'relationships#followings', as: 'followings'
     get 'followers' => 'relationships#followers', as: 'followers'
   end

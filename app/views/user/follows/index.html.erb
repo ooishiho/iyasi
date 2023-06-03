@@ -1,18 +1,18 @@
-<% if users.exists? %>
-  <% users.each do |user| %>
+<% if @users.exists? %>
+  <% @users.each do |user| %>
     <table>
       <thead>
         <tr>
           <th>name</th>
-          <th></th>
-          <th></th>
+          <th>フォロー数(<%= user.followings.count %>)</th>
+          <th>フォロワー数(<%= user.followers.count %>)</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td><%= user.name %></td>
-          <td>フォロー数: <%= user.followings.count %></td>
-          <td>フォロワー数: <%= user.followers.count %></td>
+          <td><%= user.followings.user.name %></td>
+          <td><%= user.followers.user.name %></td>
         </tr>
       </tbody>
     </table>

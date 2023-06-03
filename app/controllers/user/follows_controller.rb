@@ -1,5 +1,10 @@
 class User::FollowsController < ApplicationController
- 
+
+  def index
+    @users = user.followings
+    @users = user.followers
+  end
+  
   def following
     user = User.find(params[:user_id])
     @users = user.followings

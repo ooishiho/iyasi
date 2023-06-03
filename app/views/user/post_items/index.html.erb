@@ -1,8 +1,15 @@
-<h1>投稿一覧</h1>
-<h3>全<%= @post_items.count %>件</h3>
-<% @post_items.each do |post_item| %>
-   <%= link_to user_post_item_path(post_item.id)  do %>
-     <%= image_tag post_item.get_item_image(200,200) %>
-   <% end %>
-  <%= post_item.created_at %>
-<% end %>
+<div class="container">
+  <h1 class="mt-5 mb-3">投稿一覧(全<%= @post_items.count %>件)</h1>
+   <div class="row">
+      <div class="d-none">
+       <% @post_items.each do |post_item| %>
+      <div class="col-md-3 mt-5"
+       <%= link_to user_post_item_path(post_item.id)  do %>
+       <%= image_tag post_item.get_item_image(200,200) %>
+       <% end %>
+      </br><%= post_item.created_at.strftime("%Y/%m/%d")%>
+      </div>
+      <% end %>
+      </div>
+   </div>
+</div>

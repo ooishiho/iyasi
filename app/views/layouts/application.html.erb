@@ -17,11 +17,16 @@
      <div class="container-fluid">
       <a class="navbar-brand" href="/"><span>iyasi</span></a>
       <div  class="collapse navbar-collapse show" id="navbarBasic">
-      <ul class="navbar-nav me-auto mb-2 mb-xl-0">
+      <ul class="navbar-nav ml-auto mb-2 mb-xl-0">
       <% if user_signed_in? %>
        <li class="nav-item">
         <%= link_to user_post_items_path(all:true), class:'nav-link active' do %>
         <i class="fa-regular fa-image"></i>投稿一覧
+        <% end %>
+       </li>
+       <li class="nav-item">
+        <%= link_to user_follows_path, class: 'nav-link active' do %>
+        <i class="fa-regular fa-circle-user"></i>フォロー一覧
         <% end %>
        </li>
        <li "nav-item">
@@ -84,22 +89,12 @@
        </li>
       </ul>
       <% end %>
-       <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="検索したい単語を入力してください" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">検索</button>
-      </form>
+       <%= form_tag({controller:"post_items",action:"index"}, method: :get) do %>
+       <%= text_field_tag :search, {}, placeholder: "検索したい単語を入力" %>
+       <%= submit_tag '検索' %>
+       <% end %>
        <% if @posts == [] %>
          <h2 class = "seach-result">検索結果はありません</h2>
-       <% else %>
-        <div class = "post-contents">
-        <ul class = "post-list">
-        <% @post_items.each do |post_item| %>
-         <li class = "list">
-          <%= link_to post_item.user.name,user_my_page_path(post_item.user.id) %>
-          <%= image_tag post_item.get_item_image(100,100) %>
-          <p>投稿文<%= post_item.introduction %></p>
-          <% end %>
-         </li>
        <% end %>
          </ul>
          </div>
