@@ -5,7 +5,6 @@ class User::PostItemsController < ApplicationController
     elsif params[:all] == "false"
        @post_items =  current_user.post_items
     else
-      #byebug
        @post_items =  PostItem.page(params[:page]).per(8)
     end
     if params["search"].present?
@@ -36,10 +35,8 @@ class User::PostItemsController < ApplicationController
   def search
     @post_items = PostItem.search(params[:keyword])
     @user = current_user
-
-    #render 'index'
   end
-
+  
   private
   def post_item_params
      params.require(:post_item).permit(:introduction,:image)

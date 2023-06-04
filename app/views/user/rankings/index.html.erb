@@ -1,3 +1,7 @@
 <h1>ランキング</h1>
-<p>総合点数によって変動します。</p>
-
+<p>総合点数によって変化します</p>
+ <% @users.each do |user| %>
+   <%= link_to user_path(user) do %>
+     <%= user.name %><br>
+   <% end %>
+ <% end %>
