@@ -13,8 +13,8 @@
       </div>
 
       <div class="form-group">
-        <%= form_with model: @rank, url: user_post_item_path(@post_item.id), method: :get  do |f| %>
-        評価：<%= f.number_field :score,min:1,max:10 %>
+        <%= form_with model: @evaluation, url: user_post_item_evaluation_path(@post_item), method: :post  do |f| %>
+        評価：<%= f.number_field :point, min:1,max:10 %>
         <%= f.submit '点数を反映', class: 'btn-btn-success' %>
         <% end %>
       </div>

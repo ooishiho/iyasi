@@ -1,7 +1,9 @@
 <h1>ランキング</h1>
 <p>総合点数によって変化します</p>
- <% @users.each do |user| %>
-   <%= link_to user_path(user) do %>
-     <%= user.name %><br>
+ <% @point_list.each do |k,v| %>
+  <% post_item = PostItem.find(k) %>
+  <%= image_tag post_item.get_item_image(300,300) %>
+   <%= link_to user_customer_path(post_item.user.id) do %>
+     <%= post_item.user.name %><br>
    <% end %>
  <% end %>

@@ -1,7 +1,13 @@
 class User::CustomersController < ApplicationController
   def show
-    @user = current_user
-    @post_items = PostItem.all
+    
+    params[:id]
+  
+  end
+  
+  def my_page
+   @user = current_user
+   @post_items = PostItem.all 
   end
 
   def edit

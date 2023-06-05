@@ -58,7 +58,9 @@ ActiveRecord::Schema.define(version: 2023_05_09_115211) do
   end
 
   create_table "evaluations", force: :cascade do |t|
-    t.string "point"
+    t.integer "point"
+    t.integer "post_item_id"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

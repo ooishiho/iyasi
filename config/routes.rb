@@ -19,10 +19,12 @@ Rails.application.routes.draw do
   end
 
   namespace :user do
-    resources :post_items, only:[:index,:new,:create,:show]
-    resources :customers, only:[:edit,:update]
+    resources :post_items, only:[:index,:new,:create,:show] do
+      resource :evaluation, only:[:create]
+    end
+    resources :customers, only:[:edit,:update, :show]
 
-    get '/my_page' => 'customers#show'
+    get '/my_page' => 'customers#my_page'
     get '/unsubscribe' => 'customers#unsubscribe'
     patch '/withdraw' => 'customers#withdraw'
     get '/rankings' => 'rankings#index'

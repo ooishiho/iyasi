@@ -29,14 +29,14 @@ class User::PostItemsController < ApplicationController
     @post_item = PostItem.find(params[:id])
     @user = @post_item.user
     @login_user = current_user
-
+    @evaluation = Evaluation.new()
   end
 
   def search
     @post_items = PostItem.search(params[:keyword])
     @user = current_user
   end
-  
+
   private
   def post_item_params
      params.require(:post_item).permit(:introduction,:image)
