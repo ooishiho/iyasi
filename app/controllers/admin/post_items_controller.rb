@@ -4,6 +4,9 @@ class Admin::PostItemsController < ApplicationController
   end
 
   def destroy
+    @post_item = PostItem.find(params[:id])
+    @post_item.destroy
+    redirect_to admin_post_items_path
   end
 
   def show

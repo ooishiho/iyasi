@@ -1,7 +1,7 @@
 class User::RankingsController < ApplicationController
   def index
    @point_list = PostItem.joins(:evaluations).
-                  group(:post_item_id).order('sum_point DESC').sum(:point)
+                  group(:post_item_id).order('sum_point DESC').limit(5).sum(:point)
 
   # @post_items = PostItem.
   #  left_joins(:comments).

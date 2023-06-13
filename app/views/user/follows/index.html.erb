@@ -1,5 +1,8 @@
 <% if @users.exists? %>
-フォロー数(<%= @users.count %>)
+<div class="container">
+  <div class="row">
+    <div class="table">
+    <h4>フォロー数(<%= @users.count %>)</h4>
     <table>
       <thead>
         <tr>
@@ -15,7 +18,7 @@
        <% end %>
       </tbody>
     </table>
- フォロワー数(<%= @follow.count %>)
+    <h4>フォロワー数(<%= @follow.count %>)</h4>
     <table>
       <thead>
         <tr>
@@ -31,7 +34,10 @@
         <% end %>
       </tbody>
     </table>
+    </div>
+  </div>
+</div>
 <% else %>
-  <p>ユーザーはいません</p>
-  <p>気になる人をフォローしてみましょう</p>
+  <p class="text-center mt-5">ユーザーはいません</br>
+  気になる人をフォローしてみましょう</p>
 <% end %>

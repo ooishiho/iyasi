@@ -1,3 +1,4 @@
+<% if @bookmarks.exists? %>
 <div class="container">
   <div class="row">
     <div class="col-md-3 mt-5">
@@ -6,12 +7,16 @@
       <div class="form-group">
         <%= link_to user_post_item_path(bookmark.post_item.id) do %>
         <%= image_tag bookmark.post_item.get_item_image(100,100) %>
-        <% end %>  
+        <% end %>
       </div>
       <div class="form-group">
-        <%= bookmark.post_item.created_at %>  
+        <%= bookmark.post_item.created_at %>
       </div>
-      <% end %>   
-    </div> 
+      <% end %>
+    </div>
   </div>
 </div>
+<% else %>
+ <p class="text-center mt-5">ブックマークがありません</br>
+ 気に入った投稿をブックマークしてみましょう。</p>
+<% end %>

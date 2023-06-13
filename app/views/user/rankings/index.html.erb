@@ -1,6 +1,7 @@
-<h1>ランキング</h1>
+<h1 class="text-center mt-5">ランキング</h1>
 <p>総合点数によって変化します</p>
- <% @point_list.each do |k,v| %>
+ <% @point_list.each do |k,v,i| %>
+ <h6><%= %>位</h6>
   <% post_item = PostItem.find(k) %>
   <%= image_tag post_item.get_item_image(300,300) %>
    <%= link_to user_customer_path(post_item.user.id) do %>

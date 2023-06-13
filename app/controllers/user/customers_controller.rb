@@ -1,7 +1,7 @@
 class User::CustomersController < ApplicationController
   def show
-    
-    params[:id]
+   @user = User.find(params[:id])
+   @post_items = PostItem.all
   
   end
   
