@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 2023_05_09_115211) do
 
   create_table "post_items", force: :cascade do |t|
     t.integer "user_id"
-    t.string "introduction"
+    t.string "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -83,6 +83,8 @@ ActiveRecord::Schema.define(version: 2023_05_09_115211) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.boolean "is_deleted", default: false, null: false
+    t.string "introduction", default: ""
+    t.string "profile_image", default: ""
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "reset_password_token"

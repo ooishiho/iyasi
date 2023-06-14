@@ -39,6 +39,6 @@ class User::PostItemsController < ApplicationController
 
   private
   def post_item_params
-     params.require(:post_item).permit(:introduction,:image)
+     params.require(:post_item).permit(:comment,:image)
   end
 end

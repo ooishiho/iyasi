@@ -2,12 +2,12 @@ class User::CustomersController < ApplicationController
   def show
    @user = User.find(params[:id])
    @post_items = PostItem.all
-  
+
   end
-  
+
   def my_page
    @user = current_user
-   @post_items = PostItem.all 
+   @post_items = PostItem.all
   end
 
   def edit
@@ -34,6 +34,6 @@ class User::CustomersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name,:email,:password)
+    params.require(:user).permit(:profile_image,:name,:introduction,:email,:password)
   end
 end
