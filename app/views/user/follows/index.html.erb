@@ -1,13 +1,13 @@
 <% if @users.exists? %>
 <div class="container">
   <div class="row">
-    <div class="table">
-    <h4>フォロー数(<%= @users.count %>)</h4>
-    <table>
+    <div class="col-lg-6">
+      <table class="table mt-5">
+       <h4 class="mt-5">フォロー数(<%= @users.count %>)</h4>
       <thead>
         <tr>
           <th>name</th>
-          <th><%= image_tag user.get_profile_image(50,50) %></th>
+          <!--<th></%= image_tag @user.get_profile_image(50,50) %></th>-->
         </tr>
       </thead>
       <tbody>
@@ -17,23 +17,25 @@
         </tr>
        <% end %>
       </tbody>
-    </table>
-    <h4>フォロワー数(<%= @follow.count %>)</h4>
-    <table>
-      <thead>
-        <tr>
-          <th>name</th>
-          <th><%= image_tag user.get_profile_image(50,50) %></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @follow.each do |follow| %>
-        <tr>
-          <td><%= follow.name %></td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
+      </table>
+    </div>
+    <div class="col-lg-6">
+      <table class="table mt-5">
+       <h4 class="mt-5">フォロワー数(<%= @follow.count %>)</h4>
+       <thead>
+         <tr>
+           <th>name</th>
+           <!--<th></%= image_tag @user.get_profile_image(50,50) %></th>-->
+         </tr>
+        </thead>
+        <tbody>
+         <% @follow.each do |follow| %>
+         <tr>
+           <td><%= follow.name %></td>
+         </tr>
+         <% end %>
+        </tbody>
+       </table>
     </div>
   </div>
 </div>

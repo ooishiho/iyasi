@@ -12,19 +12,6 @@
         <%= @user.introduction %>
       </div>
       <div class="form-group">
-        <% if !current_admin %>
-          <% if @login_user.following?(@user) %>
-            <%= link_to user_follow_path(id:@user.id), method: :delete do %>
-              <i class="fa-regular fa-user"></i>フォロー
-            <% end %>
-          <% else %>
-            <%= link_to user_follows_path(id:@user.id), method: :post do %>
-              <i class="fa-solid fa-user-plus"></i>フォロー
-            <% end %>
-          <% end %>
-        <% end %>
-      </div>
-      <div class="form-group">
         ステータス
         <% if @user.is_deleted == false %>
         有効

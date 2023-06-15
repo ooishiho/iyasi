@@ -6,7 +6,11 @@
         <%= image_tag @post_item.get_item_image(700,500) %>
       </div>
       <div class="form-group">
+        <% if @user == current_user %>
         <%= link_to @user.name,user_my_page_path(@user.id) %>
+        <% else %>
+        <%= link_to @user.name,user_customer_path(@user.id) %>
+        <% end %>
       </div>
       <div class="form-group">
         <%= @post_item.comment %>
