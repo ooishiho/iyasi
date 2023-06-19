@@ -1,20 +1,17 @@
 /*global Swiper*/
-const mySwiper = new Swiper('.mv01 .swiper', {
-  effect: 'fade',
-  fadeEffect: {
-    crossFade: true,
-  },
+// Swiperのオプションを定数化
+const opt = {
   loop: true,
-  loopAdditionalSlides: 1,
-  speed: 2000,
-  autoplay: {
-    delay: 7000,
-    disableOnInteraction: false,
-    waitForTransition: false,
-  },
-  followFinger: false,
   pagination: {
-    el: '.mv01 .swiper-pagination',
-    clickable: true,
+    el: '.swiper-pagination',
   },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  }
+}
+/*global $*/
+// Swiperを実行(初期化)
+$(document).on('turbolinks:load', function() {
+    let swiper = new Swiper('.swiper',opt);
 });
