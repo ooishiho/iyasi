@@ -7,13 +7,14 @@
       <thead>
         <tr>
           <th>name</th>
-          <!--<th></%= image_tag @user.get_profile_image(50,50) %></th>-->
+          <th></th>
         </tr>
       </thead>
       <tbody>
        <% @users.each do |user| %>
         <tr>
           <td><%= user.name %></td>
+          <td><%= image_tag user.get_profile_image(30,30) %></td>
         </tr>
        <% end %>
       </tbody>
@@ -25,13 +26,14 @@
        <thead>
          <tr>
            <th>name</th>
-           <!--<th></%= image_tag @user.get_profile_image(50,50) %></th>-->
+           <th></th>
          </tr>
         </thead>
         <tbody>
-         <% @follow.each do |follow| %>
+        <% @follow.each do |follower| %>
          <tr>
-           <td><%= follow.name %></td>
+           <td><%= follower.name %></td>
+           <td><%= image_tag follower.get_profile_image(30, 30) %></td>
          </tr>
          <% end %>
         </tbody>

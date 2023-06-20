@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :bookmarks,dependent: :destroy
   has_many :post_items,dependent: :destroy
+  has_many :bookmarked_items, through: :bookmarks, source: :post_item
+
 
   has_many :relationships, class_name: "Follow", foreign_key: "follow_id", dependent: :destroy
   has_many :reverse_of_relationships, class_name: "Follow", foreign_key: "follower_id", dependent: :destroy

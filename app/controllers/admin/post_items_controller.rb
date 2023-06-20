@@ -1,5 +1,6 @@
 class Admin::PostItemsController < ApplicationController
   def index
+
     @post_items = PostItem.page(params[:page]).per(8)
   end
 

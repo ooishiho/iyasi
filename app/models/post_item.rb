@@ -3,6 +3,8 @@ class PostItem < ApplicationRecord
   has_many :bookmarks,dependent: :destroy
   has_many :evaluations,dependent: :destroy
 
+  has_many :bookmarking_users, through: :bookmarks, source: :user
+
   has_one_attached :image
 
   def self.search(search)
