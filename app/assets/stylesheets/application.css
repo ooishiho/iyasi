@@ -1,13 +1,14 @@
 .swiper {
-  width: 600px;
+  width: 1200px;
   /*height: 100%;*/
 }
 
 .swiper-slide img{
-  width:600px;
-  height:360px;
+  width:1200px;
+  height:500px;
   object-fit: cover;
 }
+
 
 :root {
   --swiper-navigation-color: #ffffff;
