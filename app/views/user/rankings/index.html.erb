@@ -1,12 +1,16 @@
 <h1 class="text-center mt-5">ランキング</h1>
-<p>総合点数によって変化します</p>
+  <div class="d-flex justify-content-center">
+   <div class="mt-5 mt-5">
+    <p>総合点数によって変化します</p>
  <% @point_list.each_with_index do |(k,v), index| %>
- <h6><%= index + 1 %>位    総合点数<%= %></h6>
+  <h6><%= index + 1 %>位    総合点数<%= v %></h6>
   <% post_item = PostItem.find(k) %>
-     <%= link_to user_post_item_path(post_item.id)  do %>
-     <%= image_tag post_item.get_item_image(300,300) %>
-     <% end %>
-   <%= link_to user_customer_path(post_item.user.id) do %>
-   </br><%= post_item.user.name %>
-   <% end %>
+      <%= link_to user_post_item_path(post_item.id)  do %>
+      <%= image_tag post_item.get_item_image(300,300) %>
+      <% end %>
+       <%= link_to user_customer_path(post_item.user.id) do %>
+       </br><%= post_item.user.name %>
+       <% end %>
  <% end %>
+   </div>
+</div>

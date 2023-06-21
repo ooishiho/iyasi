@@ -5,12 +5,13 @@ class User::PostItemsController < ApplicationController
     elsif params[:all] == "false"
        @post_items =  current_user.post_items
     else
-       @post_items =  PostItem.page(params[:page]).per_page_kaminari(8)
+       @post_items =  PostItem.page(params[:page]).per(8)
     end
     if params["search"].present?
       @post_items = PostItem.search(params["search"])
     end
      @user = current_user
+     @post_items = @post_items.page(params[:page]).per(6)
   end
 
   def new

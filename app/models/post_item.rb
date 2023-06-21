@@ -25,7 +25,7 @@ class PostItem < ApplicationRecord
   end
 
   def favorited_by?(user)
-    bookmarks.exists?
+    bookmarks.where(user:user).exists?
   end
 
 end

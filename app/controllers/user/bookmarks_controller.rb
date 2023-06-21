@@ -10,23 +10,11 @@ class User::BookmarksController < ApplicationController
     redirect_to user_post_item_path(post_item)
   end
 
-  # def destroy
-  #   post_item = PostItem.find(params[:post_item_id])
-  #   favorite = current_user.bookmarks.find_by(post_item_id: post_item.id)
-  #   favorite.destroy
-  #   redirect_to user_post_item_path(post_item)
-  # end
-
   def destroy
-   post_item = PostItem.find(params[:post_item_id])
-   favorite = current_user.bookmarks.find_by(post_item_id: post_item.id)
-  
-  if favorite
+    post_item = PostItem.find(params[:post_item_id])
+    favorite = current_user.bookmarks.find_by(post_item_id: post_item.id)
     favorite.destroy
+    redirect_to user_post_item_path(post_item)
   end
-  
-   redirect_to user_post_item_path(post_item)
-  end
-
 
 end
