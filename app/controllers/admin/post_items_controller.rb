@@ -7,12 +7,13 @@ class Admin::PostItemsController < ApplicationController
   def destroy
     @post_item = PostItem.find(params[:id])
     @post_item.destroy
-    redirect_to admin_post_items_path
+    redirect_to admin_post_items_path,notice: "投稿が削除されました。"
   end
 
   def show
     @post_item = PostItem.find(params[:id])
     @user = User.find(params[:id])
+    @total = PostItem.joins(:evaluations).group(:post_item_id).sum(:point)
   end
 
   private
