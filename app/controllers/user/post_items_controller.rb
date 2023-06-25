@@ -31,6 +31,7 @@ class User::PostItemsController < ApplicationController
     @user = @post_item.user
     @login_user = current_user
     @evaluation = Evaluation.new()
+    @total = PostItem.joins(:evaluations).group(:post_item_id).where(id: @post_item.id).sum(:point)[@post_item.id]
   end
 
   def search

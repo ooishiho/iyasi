@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class User::SessionsController < Devise::SessionsController
-  before_action :authenticate_user!, except: [:top, :about,:public_items]
+  before_action :authenticate_user!, except: [:top, :about]
   before_action :user_state, only: [:create]
   #before_action :customer_state, only: [:create]
   # GET /resource/sign_in

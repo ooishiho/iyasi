@@ -1,7 +1,10 @@
 class Admin::PostItemsController < ApplicationController
   def index
-
-    @post_items = PostItem.page(params[:page]).per(8)
+    @post_items = PostItem.all
+    if params[:user_id].present?
+      @post_items = @post_items.where(user_id: params[:user_id])
+    end
+    @post_items = @post_items.page(params[:page]).per(8)
   end
 
   def destroy
@@ -11,9 +14,11 @@ class Admin::PostItemsController < ApplicationController
   end
 
   def show
+    @login_user = current_user
+    @evaluation = Evaluation.new()
     @post_item = PostItem.find(params[:id])
     @user = User.find(params[:id])
-    @total = PostItem.joins(:evaluations).group(:post_item_id).sum(:point)
+     @total = PostItem.joins(:evaluations).group(:post_item_id).where(id: @post_item.id).sum(:point)[@post_item.id]
   end
 
   private

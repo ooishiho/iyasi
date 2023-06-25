@@ -17,49 +17,36 @@
       </div>
 
       <div class="form-group">
-        <% if !current_admin %>
         <%= form_with model: @evaluation, url: user_post_item_evaluation_path(@post_item), method: :post  do |f| %>
-        評価：<%= f.number_field :point, min:1,max:10 %>
+        評価：<%= f.number_field :point, min:1,max:10 %>＊評価は一人10点まで
         <%= f.submit '点数を反映', class: 'btn-btn-success' %>
-        <% end %>
         <% end %>
       </div>
 
       <div class="form-group">
-      <% if !current_user %>
        総合点数<%= @total %>
-      <% end %>
       </div>
 
       <div class="form-group text-right">
-      <% if !current_admin %>
          <% if @post_item.favorited_by?(current_user) %>
             <p><%= link_to user_bookmark_path(id: @post_item, post_item_id: @post_item), method: :delete do %>
-            <i class="fa-solid fa-bookmark"></i><%= @post_item.bookmarking_users.count %> ブックマーク</p>
+            <i class="fa-solid fa-bookmark"></i><%= @post_item.bookmarking_users.count %> ブックマーク済み</p>
             <% end %>
          <% else %>
             <p><%= link_to user_bookmarks_path(post_item_id: @post_item), method: :post do %>
-            <i class="fa-regular fa-bookmark"></i><%= @post_item.bookmarking_users.count %> ブックマーク</p>
+            <i class="fa-regular fa-bookmark"></i><%= @post_item.bookmarking_users.count %> ブックマークする</p>
             <% end %>
          <% end %>
-       <% end %>
 
-        <% if !current_admin %>
           <% if @login_user.following?(@user) %>
             <%= link_to user_follow_path(id:@user.id), method: :delete do %>
-              <i class="fa-regular fa-user"></i>フォロー
+             <i class="fa-solid fa-user"></i> フォロー済み
             <% end %>
           <% else %>
             <%= link_to user_follows_path(id:@user.id), method: :post do %>
-              <i class="fa-solid fa-user-plus"></i>フォロー
+             <i class="fa-regular fa-user"></i>フォローする
             <% end %>
           <% end %>
-        <% end %>
-      </div>
-      <div class="form-group">
-        <% if !current_user %>
-        <%= link_to '投稿削除', admin_post_item_path(@post_item.id), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-outline-danger" %>
-        <% end %>
       </div>
       <div class="form-group">
         <%= link_to '戻る',:back, class: 'btn btn-outline-success' %>
