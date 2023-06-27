@@ -33,3 +33,18 @@
   --swiper-navigation-color: #ffffff;
   --swiper-pagination-color: #ffffff;
 }
+
+.text-color{
+  color:#32cd32;
+  font-family:serif;
+}
+
+.text-style{
+  font-family:serif;
+}
+
+.background{
+  background-image: url("rm422-047.jpg");
+  background-size:cover;
+  background-position: center;
+}

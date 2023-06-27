@@ -7,13 +7,12 @@ class PostItem < ApplicationRecord
 
   has_one_attached :image
 
-  def self.search(search)
-    if search != ""
-      PostItem.joins(:user).where(['introduction LIKE(?) OR users.name LIKE (?)', "%#{search}%", "%#{search}%"])
+  def self.search_keyword(word)
+    if word != ""
+      PostItem.joins(:user).where(['comment LIKE(?) OR users.name LIKE (?)', "%#{word}%", "%#{word}%"])
     else
       PostItem.includes(:user).order('created_at DESC')
     end
-
   end
 
   def get_item_image(width,height)

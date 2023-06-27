@@ -37,7 +37,8 @@
             <i class="fa-regular fa-bookmark"></i><%= @post_item.bookmarking_users.count %> ブックマークする</p>
             <% end %>
          <% end %>
-
+         
+        
           <% if @login_user.following?(@user) %>
             <%= link_to user_follow_path(id:@user.id), method: :delete do %>
              <i class="fa-solid fa-user"></i> フォロー済み

@@ -2,6 +2,12 @@
 
 class User::SessionsController < Devise::SessionsController
   before_action :authenticate_user!, except: [:top, :about]
+  before_action :authenticate_user_for_post_items, only: [:post_items]
+
+   def authenticate_user_for_post_items
+     redirect_to root_path unless action_name == "index"
+   end
+
   before_action :user_state, only: [:create]
   #before_action :customer_state, only: [:create]
   # GET /resource/sign_in

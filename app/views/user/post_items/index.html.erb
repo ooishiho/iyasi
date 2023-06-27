@@ -4,9 +4,13 @@
       </br class="d-none">
        <% @post_items.each do |post_item| %>
       <div class="col-md-3 mt-5">
+     <% if current_user %>
        <%= link_to user_post_item_path(post_item.id)  do %>
        <%= image_tag post_item.get_item_image(200,200) %>
        <% end %>
+     <% else %>
+       <%= image_tag post_item.get_item_image(200,200) %>
+     <% end %>
       </br>
         <%= post_item.created_at.strftime("%Y/%m/%d") %>
       </div>

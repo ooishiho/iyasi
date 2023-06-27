@@ -5,13 +5,10 @@ class User::PostItemsController < ApplicationController
     elsif params[:all] == "false"
        @post_items =  current_user.post_items
     else
-       @post_items =  PostItem.page(params[:page]).per(8)
-    end
-    if params["search"].present?
-      @post_items = PostItem.search(params["search"])
+      @post_items = @post_items.where(user_id: params[:user_id])
     end
      @user = current_user
-     @post_items = @post_items.page(params[:page]).per(6)
+     @post_items =  @post_items.page(params[:page]).per(8)
   end
 
   def new
@@ -35,12 +32,16 @@ class User::PostItemsController < ApplicationController
   end
 
   def search
-    @post_items = PostItem.search(params[:keyword])
+    @post_items = PostItem.search_keyword(params[:search])
     @user = current_user
   end
 
   private
   def post_item_params
      params.require(:post_item).permit(:comment,:image)
+  end
+
+  def user_params
+    params.require(:user).permit(:name,:email,:introduction)
   end
 end

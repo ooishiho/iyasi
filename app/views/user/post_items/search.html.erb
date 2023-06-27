@@ -1,0 +1,23 @@
+<div class="container">
+  <h1 class="mt-5 mb-3">検索結果(全<%= @post_items.count %>件)</h1>
+   <div class="row">
+      </br class="d-none">
+        <% @post_items.each do |post_item| %>
+          <div class="col-md-3 mt-5">
+            <%= link_to user_post_item_path(post_item.id)  do %>
+              <%= image_tag post_item.get_item_image(200,200) %>
+            <% end %>
+            </br>
+            <%= post_item.created_at.strftime("%Y/%m/%d") %>
+          </div>
+        <% end %>
+       <% if @post_items.blank? %>
+         <h2 class = "seach-result">検索結果はありません</h2>
+       <% end %>
+      </div>
+   </div>
+</div>
+<footer>
+ <div class="d-flex justify-content-center mt-5">
+ </div>
+</footer>

@@ -21,7 +21,11 @@ Rails.application.routes.draw do
   namespace :user do
     resources :post_items, only:[:index,:new,:create,:show] do
       resource :evaluation, only:[:create]
+      collection do
+        get 'search'
+      end
     end
+    
     resources :customers, only:[:edit,:update, :show]
 
     get '/my_page' => 'customers#my_page'
