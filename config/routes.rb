@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   sessions: 'user/sessions'
 }
 
+  devise_scope :user do
+    post 'user/guest_sign_in', to: 'user/sessions#guest_sign_in'
+  end
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: "user/homes#top"
   get '/home/top' => 'admin/homes#top'
@@ -25,7 +29,7 @@ Rails.application.routes.draw do
         get 'search'
       end
     end
-    
+
     resources :customers, only:[:edit,:update, :show]
 
     get '/my_page' => 'customers#my_page'

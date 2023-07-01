@@ -1,8 +1,13 @@
 class User::FollowsController < ApplicationController
+ before_action :ensure_normal_user, only: %i[following followers create destroy]
 
   def index
     @users = current_user.followings
     @follow = current_user.follows
+    if  current_user.email== "guest@example.com"
+     flash[:notice] = "ゲストログインではこの機能は利用できません"
+     redirect_to user_post_items_path
+    end
   end
 
   def following

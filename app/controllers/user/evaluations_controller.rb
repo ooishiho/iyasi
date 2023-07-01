@@ -1,4 +1,6 @@
 class User::EvaluationsController < ApplicationController
+before_action :ensure_normal_user, only: %i[create]
+
   def create
     evaluation = Evaluation.new(evaluation_params)
     evaluation.post_item_id = params[:post_item_id]

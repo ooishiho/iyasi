@@ -1,6 +1,10 @@
 class User::BookmarksController < ApplicationController
   def index
     @bookmarks = current_user.bookmarks
+    if  current_user.email== "guest@example.com"
+     flash[:notice] = "ゲストログインではこの機能は利用できません"
+     redirect_to user_post_items_path
+    end
   end
 
   def create

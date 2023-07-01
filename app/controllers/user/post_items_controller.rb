@@ -1,5 +1,11 @@
 class User::PostItemsController < ApplicationController
+  before_action :ensure_normal_user, only: %i[new create update destroy]
+
   def index
+    if  current_user.email== "guest@example.com"
+      @post_items = PostItem.page(params[:page]).per(8)
+    end
+
     if params[:all] == "true"
        @post_items =  PostItem.all
     elsif params[:all] == "false"

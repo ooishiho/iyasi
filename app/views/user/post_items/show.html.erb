@@ -17,9 +17,11 @@
       </div>
 
       <div class="form-group">
+        <% if !current_user.email == "guest@example.com" %>
         <%= form_with model: @evaluation, url: user_post_item_evaluation_path(@post_item), method: :post  do |f| %>
         評価：<%= f.number_field :point, min:1,max:10 %>＊評価は一人10点まで
         <%= f.submit '点数を反映', class: 'btn-btn-success' %>
+        <% end %>
         <% end %>
       </div>
 
@@ -28,6 +30,7 @@
       </div>
 
       <div class="form-group text-right">
+        <% if !current_user.email == "guest@example.com" %>
          <% if @post_item.favorited_by?(current_user) %>
             <p><%= link_to user_bookmark_path(id: @post_item, post_item_id: @post_item), method: :delete do %>
             <i class="fa-solid fa-bookmark"></i><%= @post_item.bookmarking_users.count %> ブックマーク済み</p>
@@ -37,8 +40,8 @@
             <i class="fa-regular fa-bookmark"></i><%= @post_item.bookmarking_users.count %> ブックマークする</p>
             <% end %>
          <% end %>
-         
-        
+
+
           <% if @login_user.following?(@user) %>
             <%= link_to user_follow_path(id:@user.id), method: :delete do %>
              <i class="fa-solid fa-user"></i> フォロー済み
@@ -48,6 +51,7 @@
              <i class="fa-regular fa-user"></i>フォローする
             <% end %>
           <% end %>
+        <% end %>
       </div>
       <div class="form-group">
         <%= link_to '戻る',:back, class: 'btn btn-outline-success' %>

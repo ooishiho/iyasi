@@ -4,11 +4,11 @@ class User::SessionsController < Devise::SessionsController
   before_action :authenticate_user!, except: [:top, :about]
   before_action :authenticate_user_for_post_items, only: [:post_items]
 
-   def authenticate_user_for_post_items
-     redirect_to root_path unless action_name == "index"
-   end
-
-  before_action :user_state, only: [:create]
+  def guest_sign_in
+    user = User.guest
+    sign_in user
+    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+  end
   #before_action :customer_state, only: [:create]
   # GET /resource/sign_in
   # def new

@@ -62,6 +62,11 @@
         <% end %>
        </li>
        <li class="nav-item">
+        <%= link_to user_guest_sign_in_path, method: :post, class: "nav-link active" do %>
+        <i class="fa-solid fa-user-clock"></i>ゲストログイン
+        <% end %>
+       </li>
+       <li class="nav-item">
         <%= link_to new_user_registration_path, class: 'nav-link active' do %>
         <i class="fa-solid fa-user-plus"></i>新規登録
         <% end %>
