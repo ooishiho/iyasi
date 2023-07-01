@@ -1,0 +1,50 @@
+.swiper {
+  width: 1200px;
+  /*height: 100%;*/
+}
+
+.swiper-slide img{
+  width:1200px;
+  height:500px;
+  object-fit: cover;
+}
+
+.slide-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+}
+
+.text-large{
+  font-size:60px;
+}
+
+.text-small{
+  font-size:30px;
+}
+.logo{
+  width:100;
+  height:100;
+}
+:root {
+  --swiper-navigation-color: #ffffff;
+  --swiper-pagination-color: #ffffff;
+}
+
+.text-color{
+  color:#32cd32;
+  font-family:serif;
+}
+
+.text-style{
+  font-family:serif;
+}
+
+.background{
+  background-image: url("../images/rm422-047.jpg");
+  background-size:cover;
+  background-position: center;
+}
