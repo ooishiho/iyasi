@@ -44,7 +44,7 @@
 }
 
 .background{
-  background-image: image-url("rm422-047.jpg");
+  background-image: url("../images/rm422-047.jpg");
   background-size:cover;
   background-position: center;
 }
