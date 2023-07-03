@@ -79,7 +79,7 @@
        </li>
       </ul>
       <% end %>
-       <%= form_tag({controller:"post_items",action:"search"}, method: :get) do %>
+       <%= form_tag({controller: "user/post_items",action: "search"}, method: :get) do %>
        <%= text_field_tag :search, {}, placeholder: "検索したい単語を入力" %>
        <%= submit_tag '検索' %>
        <% end %>

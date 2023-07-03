@@ -25,11 +25,11 @@ class User::SessionsController < Devise::SessionsController
   #   super
   # end
   def after_sign_in_path_for(resource)
-      user_post_items_path
+      user_post_items_path, notice: 'ログインしました'
   end
 
   def after_sign_out_path_for(resource)
-      root_path
+      root_path, notice: 'ログアウトしました'
   end
 
   protected
