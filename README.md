@@ -30,7 +30,13 @@
 
 
 ## 設計書
-今後記入予定
+WBS:https://docs.google.com/spreadsheets/d/1PE7OyEa13tzyr8ERI2ocu7TY8k9Aamgk37X0hwS3Qo8/edit?usp=sharing
+ER図：https://drive.google.com/file/d/19v2cJp8GYHJ8t7iD_Fytu17gYWoN6pfU/view?usp=sharing
+Ui Frow　会員側：https://drive.google.com/file/d/1sDvbQsv-gy3LBz4WbyiyTw5XZ0OMdXCU/view?usp=sharing
+        管理側:https://drive.google.com/file/d/1L7-b6Yy88dU2EKS5Zc4GIxgS7S3yoFOV/view?usp=sharing
+テーブル定義書:https://docs.google.com/spreadsheets/d/156t_CrvrxtqM59rlv7MxahSq-dxY3OIpnJRPyIn0w5o/edit?usp=sharing
+詳細設計:https://docs.google.com/spreadsheets/d/1dpARmrWVjZdlPtMbqyNA860k4oXaKGwvvutl-HP2og4/edit?usp=sharing
+テスト仕様書:https://docs.google.com/spreadsheets/d/11jtgDGqcOifow46fYdTbDXewIcqWPLlt/edit?usp=sharing&ouid=114190464236428830708&rtpof=true&sd=true
 
 ## 実装機能リスト
 https://docs.google.com/spreadsheets/d/1KRz6znVOyYKF7sNvLuZidTHcli49UaPRludnIHNKFXQ/edit?usp=sharing
