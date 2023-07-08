@@ -25,11 +25,13 @@ class User::SessionsController < Devise::SessionsController
   #   super
   # end
   def after_sign_in_path_for(resource)
-      user_post_items_path, notice: 'ログインしました'
+    flash[:notice] = 'ログインしました'
+    user_post_items_path
   end
 
   def after_sign_out_path_for(resource)
-      root_path, notice: 'ログアウトしました'
+    flash[:notice] = 'ログアウトしました'
+    root_path
   end
 
   protected
