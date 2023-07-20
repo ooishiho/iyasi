@@ -30,7 +30,7 @@
         <% end %>
        </li>
        <li "nav-item">
-        <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link' do %>
+        <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link active' do %>
         <i class="fa-solid fa-right-from-bracket"></i>ログアウト
         <% end %>
        </li>
@@ -54,11 +54,6 @@
        <li "nav-item">
         <%= link_to about_path, class: 'nav-link active' do %>
         About
-        <% end %>
-       </li>
-       <li class="nav-item">
-        <%= link_to user_post_items_path(all:true), class: 'nav-link active' do %>
-        <i class="fa-regular fa-image"></i>投稿一覧
         <% end %>
        </li>
        <li class="nav-item">
