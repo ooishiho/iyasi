@@ -7,6 +7,8 @@ class PostItem < ApplicationRecord
 
   has_one_attached :image
 
+  validates :image, presence: true
+
   def self.search_keyword(word)
     if word != ""
       PostItem.joins(:user).where(['comment LIKE(?) OR users.name LIKE (?)', "%#{word}%", "%#{word}%"])

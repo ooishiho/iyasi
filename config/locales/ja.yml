@@ -1,0 +1,32 @@
+ja:
+  activerecord:
+    errors:
+      messages:
+        taken: "は既に使用されています"
+        blank: "を入力してください"
+        too_short: "は%{count}文字以上で入力してください"
+        too_long: "は%{count}文字以下で入力してください"
+        record_invalid: 'バリデーションに失敗しました: %{errors}'
+        restrict_dependent_destroy:
+          has_one: "%{record}が存在しているので削除できません"
+          has_many: "%{record}が存在しているので削除できません"
+    passwords:
+      failure:
+        invalid: "無効なリンクです。"
+      user:
+        password_changed: "パスワードが変更されました。"
+        send_instructions: "パスワード再設定のためのメールを送信しました。メールを確認してください。"
+        updated: "パスワードが更新されました。"
+    model:
+      user: "ユーザー"
+    attributes:
+      user:
+        name: "ユーザー名"
+        email: "メールアドレス"
+        Password : "パスワード"
+  devise:
+    failure:
+      user:
+        invalid: "メールアドレスまたはパスワードが正しくありません。"
+        not_found_in_database: "メールアドレスまたはパスワードが正しくありません。"
+        already_authenticated: "すでにログインしています。"

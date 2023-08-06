@@ -3,6 +3,7 @@
     <div class="col-sm-12 coi-md-8 col-lg-5 px-5 px-sm-0 c enter-block">
      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <h4 class="text-center mt-3 mb-3">登録済の方はこちらからログイン</h4>
+
   <% if @user.errors.any? %>
   <div id="error_explanation" class="alert alert-danger">
     <ul>
@@ -12,6 +13,8 @@
     </ul>
   </div>
 　<% end %>
+　<%= render "devise/shared/error_messages", resource: resource %>
+　
   <div class="form-group">
     <%= f.label :"メールアドレス" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
