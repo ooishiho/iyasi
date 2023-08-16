@@ -23,13 +23,8 @@ class User::PostItemsController < ApplicationController
   def create
     @post_item = PostItem.new(post_item_params)
     @post_item.user = current_user
-    if @post_item.save
-      flash[:notice] = "投稿が完了しました。"
-      redirect_to user_post_item_path(@post_item.id)
-    else
-      flash.now[:notice] = "投稿に失敗しました。再度確認の上投稿してください。"
-      render :new
-    end
+    @post_item.save
+    redirect_to user_post_item_path(@post_item.id)
   end
 
   def show
