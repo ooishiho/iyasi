@@ -12,14 +12,20 @@
   </head>
 
   <body>
-    <header>
-    <%= render 'layouts/header' %>
+    <header id="header">
+      <%= render 'layouts/header' %>
     </header>
      <main>
-      <div>
-      <%= flash[:notice] %>
-      </div>
+      <!--<div>-->
+      <!--</%= flash[:notice] %>-->
+      <!--</div>-->
       <%= yield %>
      </main>
+
+     <footer id="footer">
+       <div class="footer-text">
+         <p>@ooi shiho PF</p>
+       </div>
+     </footer>
   </body>
 </html>
